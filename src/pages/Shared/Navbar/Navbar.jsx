@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
+import NavItem from "./NavItem/NavItem";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,18 +37,9 @@ const Navbar = () => {
               } absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center`}
             >
               <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
-                <Link
-                  to={`/`}
-                  className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  Join Slack
-                </Link>
-                <Link
-                  to={`/`}
-                  className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  Browse Topics
-                </Link>
+                <NavItem routeName={"Home"} routePath={`/`} />
+                <NavItem routeName={"CONTACT US"} routePath={`/contact-us`} />
+
                 <Link
                   to={`/`}
                   className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"

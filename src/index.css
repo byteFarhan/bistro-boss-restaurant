@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .nav-item {
+    @apply px-3 py-2 mx-3 mt-2 font-semibold text-white transition-colors duration-300 transform lg:mt-0 hover:text-yellow-500;
+  }
+}
