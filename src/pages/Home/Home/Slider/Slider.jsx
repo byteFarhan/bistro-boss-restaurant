@@ -9,7 +9,7 @@ import slideImg6 from "../../../../assets/home/06.png";
 
 const Slider = () => {
   return (
-    <section className="lg:h-[80vh]">
+    <section className="lg:h-[80vh] lg:mb-28">
       <Carousel
         className="h-full text-center"
         showArrows={true}
