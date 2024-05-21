@@ -3,7 +3,18 @@ export default {
   darkMode: "selector",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#D99904",
+        secondary: "#EEFF25",
+        natural: "#737373",
+        title: "#151515",
+      },
+      fontFamily: {
+        inter: "'Inter', sans-serif",
+        cinzel: "'Cinzel', serif",
+      },
+    },
   },
   plugins: [],
 };

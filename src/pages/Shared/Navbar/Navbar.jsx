@@ -7,12 +7,19 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <nav className="relative bg-white shadow dark:bg-gray-800">
+      <nav className="fixed z-10 w-full shadow bg-[#15151580] dark:bg-gray-800">
         <div className="px-4 py-4 mx-auto md:px-6 lg:px-10">
           <div className="lg:flex lg:items-center lg:justify-between">
             <div className="flex items-center justify-between">
               <Link to={`/`}>
-                <img className="w-auto h-6 sm:h-7" src="" alt="logo" />
+                <div className="">
+                  <h3 className="text-lg font-bold leading-normal text-white md:text-xl lg:text-2xl font-cinzel">
+                    BISTRO BOSS
+                  </h3>
+                  <h5 className="text-base font-semibold text-white md:text-lg lg:text-xl font-cinzel">
+                    Restaurant
+                  </h5>
+                </div>
               </Link>
 
               {/* <!-- Mobile menu button --> */}
@@ -20,7 +27,7 @@ const Navbar = () => {
                 <button
                   onClick={() => setIsOpen(!isOpen)}
                   type="button"
-                  className="text-2xl font-semibold text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400 md:text-3xl"
+                  className="text-2xl font-semibold text-white dark:text-gray-200 dark:hover:text-gray-400 focus:outline-none dark:focus:text-gray-400 md:text-3xl"
                   aria-label="toggle menu"
                 >
                   {!isOpen ? <RxHamburgerMenu /> : <RxCross2 />}
@@ -34,24 +41,14 @@ const Navbar = () => {
                 isOpen
                   ? "translate-x-0 opacity-100"
                   : "opacity-0 -translate-x-full"
-              } absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center`}
+              } absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-[#15151580] dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center`}
             >
               <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
                 <NavItem routeName={"Home"} routePath={`/`} />
                 <NavItem routeName={"CONTACT US"} routePath={`/contact-us`} />
-
-                <Link
-                  to={`/`}
-                  className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  Random Item
-                </Link>
-                <Link
-                  to={`/`}
-                  className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                  Experts
-                </Link>
+                <NavItem routeName={"DASHBOARD"} routePath={`/dashboard`} />
+                <NavItem routeName={"Our Menu"} routePath={`/our-menu`} />
+                <NavItem routeName={"Our Shop"} routePath={`/our-shop`} />
               </div>
 
               <div className="flex items-center mt-4 lg:mt-0">
