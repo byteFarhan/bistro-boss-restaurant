@@ -7,6 +7,7 @@ export default {
       colors: {
         primary: "#D99904",
         secondary: "#EEFF25",
+        "dark-orange": "#BB8506",
         natural: "#737373",
         title: "#151515",
       },

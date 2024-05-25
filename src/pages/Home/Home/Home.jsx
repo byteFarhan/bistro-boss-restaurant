@@ -1,8 +1,9 @@
 import Cover from "../../Shared/Cover/Cover";
 import OrderOnline from "../OrderOnline/OrderOnline";
-import Slider from "./Slider/Slider";
+import Slider from "../Slider/Slider";
 import bgImg from "../../../assets/home/chef-service.jpg";
 import ChefRecommends from "../ChefRecommends/ChefRecommends";
+import OurMenu from "../OurMenu/OurMenu";
 
 const Home = () => {
   return (
@@ -24,6 +25,8 @@ const Home = () => {
           </div>
         </Cover>
       </section>
+      {/* Our Menue Section */}
+      <OurMenu />
       {/* Call US section */}
       <section className="px-5 pb-16 mx-auto max-w-7xl md:pb-20 lg:px-0 lg:pb-28">
         <div className="py-10 text-3xl font-semibold text-center text-white md:py-16 lg:py-24 md:text-4xl lg:text-5xl bg-title font-cinzel">
