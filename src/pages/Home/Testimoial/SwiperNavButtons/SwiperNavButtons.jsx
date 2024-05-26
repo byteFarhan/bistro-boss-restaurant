@@ -4,7 +4,7 @@ import { useSwiper } from "swiper/react";
 const SwiperNavButtons = () => {
   const swiper = useSwiper();
   return (
-    <div className="absolute z-20 flex justify-between w-full lg:px-10 top-1/2">
+    <div className="absolute z-20 flex justify-between w-full lg:px-10 top-1/2 lg:top-[60%]">
       <div onClick={() => swiper.slidePrev()} className="">
         <GrPrevious className="text-2xl font-black text-[#007AFF] transition-all duration-75 ease-in cursor-pointer lg:text-3xl hover:text-[#007AFF]" />
       </div>

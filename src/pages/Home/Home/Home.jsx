@@ -5,6 +5,7 @@ import bgImg from "../../../assets/home/chef-service.jpg";
 import ChefRecommends from "../ChefRecommends/ChefRecommends";
 import OurMenu from "../OurMenu/OurMenu";
 import Testimoial from "../Testimoial/Testimoial";
+import Featured from "../Featured/Featured";
 
 const Home = () => {
   return (
@@ -37,6 +38,7 @@ const Home = () => {
         </div>
       </section>
       <ChefRecommends />
+      <Featured />
       <Testimoial />
     </section>
   );
