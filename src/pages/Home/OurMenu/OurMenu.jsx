@@ -12,7 +12,7 @@ const OurMenu = () => {
       setPopularMenus(res.data);
     });
   }, [axiosSecure]);
-  console.log(popularMenus);
+  //   console.log(popularMenus);
   return (
     <>
       <Section>
