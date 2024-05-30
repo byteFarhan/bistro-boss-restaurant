@@ -1,5 +1,6 @@
 import Cover from "../Shared/Cover/Cover";
 import bannerBg from "../../assets/menu/banner3.jpg";
+import useMenus from "../../hooks/useMenus";
 
 const OurMenu = () => {
   return (

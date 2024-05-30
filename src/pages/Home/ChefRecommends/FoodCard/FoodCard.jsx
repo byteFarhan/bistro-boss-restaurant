@@ -15,7 +15,7 @@ const FoodCard = () => {
           <p className="text-title">
             Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.
           </p>
-          <button className="text-dark-orange uppercase px-6 py-4 bg-[#E8E8E8] text-lg font-medium rounded-lg mt-6 border-b-2 hover:border-transparent hover:bg-[#1F2937] border-[#BB8506] transition-all delay-200">
+          <button className="btn-base hover:bg-[#1F2937] border-[#BB8506] bg-[#E8E8E8] text-dark-orange">
             add to cart
           </button>
         </div>
