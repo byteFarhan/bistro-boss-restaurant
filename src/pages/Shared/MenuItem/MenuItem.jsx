@@ -2,11 +2,11 @@ const MenuItem = ({ menu }) => {
   const { name, price, image, recipe } = menu;
   return (
     <div className="flex flex-col items-center gap-6 md:flex-row">
-      <div>
+      <div className="w-[118px] h-[104px] ">
         <img
           src={image}
           alt=""
-          className="bg-natural w-[118px] h-[104px] object-cover cursor-pointer rounded-[200px] rounded-tl-none"
+          className="bg-natural w-full h-full object-cover cursor-pointer rounded-[200px] rounded-tl-none"
         />
       </div>
       <div className="text-center md:text-left">
