@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "./testimoial.css";
+// import "./testimoial.css";
 
 // import required modules
 import { Autoplay, EffectFade } from "swiper/modules";
@@ -26,7 +26,12 @@ const Testimoial = () => {
       setReviews(res.data);
     });
   }, [axiosSecure]);
-  console.log(reviews);
+  //   useEffect(() => {
+  //     const isActive = document.getElementsByClassName("testimonial-item");
+  //     console.log(isActive.parentNode);
+  //     console.log(isActive);
+  //   }, [reviews]);
+  //   console.log(reviews);
   return (
     <>
       <Section>

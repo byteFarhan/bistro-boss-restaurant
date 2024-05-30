@@ -7,8 +7,8 @@ const Featured = () => {
   return (
     <>
       <section className="pb-16 md:pb-20 lg:px-0 lg:pb-28">
-        <Cover bgImg={featuredItemBg}>
-          <div className="mx-auto lg:w-2/3">
+        <Cover bgImg={featuredItemBg} effect={true}>
+          <div className="mx-auto max-w-7xl">
             <SectionIntro
               subTitle={"Check it out"}
               title={"OUR Featured Item"}

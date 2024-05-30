@@ -13,7 +13,7 @@ const Home = () => {
       <Slider />
       <OrderOnline />
       <section className="pb-16 mx-auto max-w-7xl md:pb-20 lg:pb-28">
-        <Cover bgImg={bgImg}>
+        <Cover bgImg={bgImg} effect={true}>
           <div className="p-10 text-center bg-white md:p-16 lg:py-24 lg:px-36">
             <h3 className="mb-1 text-3xl font-normal leading-normal uppercase md:text-4xl lg:text-5xl text-title font-cinzel">
               Bistro Boss

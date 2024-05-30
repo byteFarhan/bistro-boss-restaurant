@@ -1,13 +1,15 @@
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import quoteIcon from "../../../../assets/home/quote-left 1.svg";
+import { useEffect } from "react";
 
 const TestimonialItem = ({ review }) => {
   const { name, details, rating } = review;
+
   return (
     <>
       <div
-        className="flex flex-col justify-center space-y-4 bg-transparent"
+        className="flex flex-col justify-center space-y-4 bg-white"
         // className="bg-no-repeat bg-cover py-28"
         // style={{ backgroundImage: `url(${testimonialBg})` }}
       >

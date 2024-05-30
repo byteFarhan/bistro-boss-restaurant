@@ -1,13 +1,13 @@
 import { Parallax } from "react-parallax";
 
-const Cover = ({ bgImg, children }) => {
+const Cover = ({ bgImg, children, effect }) => {
   return (
     <div>
       <Parallax
-        blur={{ min: -30, max: 30 }}
+        blur={effect && { min: -30, max: 30 }}
         bgImage={bgImg}
-        bgImageAlt="the dog"
-        strength={-200}
+        bgImageAlt=""
+        strength={effect ? -200 : 0}
         className="bg-center bg-cover"
       >
         {/* Blur transition from min to max
