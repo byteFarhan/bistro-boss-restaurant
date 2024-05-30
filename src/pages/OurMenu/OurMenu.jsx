@@ -1,14 +1,22 @@
 import Cover from "../Shared/Cover/Cover";
 import bannerBg from "../../assets/menu/banner3.jpg";
 import useMenus from "../../hooks/useMenus";
-import SectionIntro from "../Shared/SectionIntro/SectionIntro";
-import MenuItem from "../Shared/MenuItem/MenuItem";
-import offeredBg from "../../assets/home/chef-service.jpg";
 import MenuCategory from "./MenuCategory/MenuCategory";
+import dessertBg from "../../assets/home/chef-service.jpg";
+import pizzaBg from "../../assets/menu/pizza-bg.jpg";
+import saladsBg from "../../assets/menu/salad-bg.jpg";
+import soupBg from "../../assets/menu/soup-bg.jpg";
 
 const OurMenu = () => {
   const offered = useMenus("offered");
+  const dessert = useMenus("dessert");
+  const pizza = useMenus("pizza");
+  const salads = useMenus("salad");
+  const soups = useMenus("soup");
 
+  console.log("Soups", soups);
+  console.log("Salads", salads);
+  console.log("pizza", pizza);
   console.log("offered", offered);
 
   return (
@@ -30,6 +38,46 @@ const OurMenu = () => {
         sectionIntroTitle={"TODAY'S OFFER"}
         sectionIntroSubtitle={"Don't miss"}
         categoryTitle={"DESSERTS"}
+        categoryDescription={`Lorem Ipsum has been the industry’s standard dummy text ever since
+        the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book.`}
+      />
+      <MenuCategory
+        menus={dessert[0]}
+        isLoading={dessert[1]}
+        showCover={true}
+        coverBg={dessertBg}
+        categoryTitle={"DESSERTS"}
+        categoryDescription={`Lorem Ipsum has been the industry’s standard dummy text ever since
+        the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book.`}
+      />
+      <MenuCategory
+        menus={pizza[0]}
+        isLoading={pizza[1]}
+        showCover={true}
+        coverBg={pizzaBg}
+        categoryTitle={"PIZZA"}
+        categoryDescription={`Lorem Ipsum has been the industry’s standard dummy text ever since
+        the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book.`}
+      />
+      <MenuCategory
+        menus={salads[0]}
+        isLoading={salads[1]}
+        showCover={true}
+        coverBg={saladsBg}
+        categoryTitle={"Salads"}
+        categoryDescription={`Lorem Ipsum has been the industry’s standard dummy text ever since
+        the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book.`}
+      />
+      <MenuCategory
+        menus={soups[0]}
+        isLoading={soups[1]}
+        showCover={true}
+        coverBg={soupBg}
+        categoryTitle={"soups"}
         categoryDescription={`Lorem Ipsum has been the industry’s standard dummy text ever since
         the 1500s, when an unknown printer took a galley of type and
         scrambled it to make a type specimen book.`}

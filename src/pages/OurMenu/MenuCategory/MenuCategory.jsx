@@ -22,15 +22,6 @@ const MenuCategory = ({
             subTitle={sectionIntroSubtitle}
           />
         )}
-        <div className="menus-container">
-          {menus?.length > 0 &&
-            menus?.map((item) => <MenuItem key={item._id} menu={item} />)}
-        </div>
-        <div className="my-6 text-center md:my-8 lg:my-12">
-          <button className="border-title btn-base hover:bg-title hover:text-white">
-            ORDER YOUR FAVOURITE FOOD
-          </button>
-        </div>
         {showCover && (
           <Cover bgImg={coverBg} effect={true}>
             <div className="p-10 text-center bg-[#15151599] max-w-7xl mx-auto md:p-16 lg:py-24 lg:px-36">
@@ -41,6 +32,15 @@ const MenuCategory = ({
             </div>
           </Cover>
         )}
+        <div className="menus-container">
+          {menus?.length > 0 &&
+            menus?.map((item) => <MenuItem key={item._id} menu={item} />)}
+        </div>
+        <div className="mt-6 text-center md:mt-8 lg:mt-12">
+          <button className="border-title btn-base hover:bg-title hover:text-white">
+            ORDER YOUR FAVOURITE FOOD
+          </button>
+        </div>
       </section>
     </>
   );
