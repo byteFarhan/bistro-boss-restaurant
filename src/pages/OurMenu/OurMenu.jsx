@@ -4,9 +4,12 @@ import useMenus from "../../hooks/useMenus";
 import SectionIntro from "../Shared/SectionIntro/SectionIntro";
 import MenuItem from "../Shared/MenuItem/MenuItem";
 import offeredBg from "../../assets/home/chef-service.jpg";
+import MenuCategory from "./MenuCategory/MenuCategory";
 
 const OurMenu = () => {
   const offered = useMenus("offered");
+
+  console.log("offered", offered);
 
   return (
     <section>
@@ -20,30 +23,17 @@ const OurMenu = () => {
           </h5>
         </div>
       </Cover>
-      <section className="pt-20 mb-12 md:pt-24 lg:pt-32">
-        <SectionIntro title={"TODAY'S OFFER"} subTitle={"Don't miss"} />
-        <div className="menus-container">
-          {offered[0]?.length > 0 &&
-            offered[0]?.map((item) => <MenuItem key={item._id} menu={item} />)}
-        </div>
-        <div className="my-6 text-center md:my-8 lg:my-12">
-          <button className="border-title btn-base hover:bg-title hover:text-white">
-            ORDER YOUR FAVOURITE FOOD
-          </button>
-        </div>
-        <Cover bgImg={offeredBg} effect={true}>
-          <div className="p-10 text-center bg-[#15151599] max-w-7xl mx-auto md:p-16 lg:py-24 lg:px-36">
-            <h3 className="mb-1 text-3xl font-normal leading-normal text-white uppercase md:text-4xl lg:text-5xl font-cinzel">
-              DESSERTS
-            </h3>
-            <p className="w-full mx-auto text-white">
-              Lorem Ipsum has been the industry’s standard dummy text ever since
-              the 1500s, when an unknown printer took a galley of type and
-              scrambled it to make a type specimen book.
-            </p>
-          </div>
-        </Cover>
-      </section>
+      <MenuCategory
+        menus={offered[0]}
+        isLoading={offered[1]}
+        showSectionIntro={true}
+        sectionIntroTitle={"TODAY'S OFFER"}
+        sectionIntroSubtitle={"Don't miss"}
+        categoryTitle={"DESSERTS"}
+        categoryDescription={`Lorem Ipsum has been the industry’s standard dummy text ever since
+        the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book.`}
+      />
     </section>
   );
 };
