@@ -48,7 +48,10 @@ const Navbar = () => {
                 <NavItem routeName={"CONTACT US"} routePath={`/contact-us`} />
                 <NavItem routeName={"DASHBOARD"} routePath={`/dashboard`} />
                 <NavItem routeName={"Our Menu"} routePath={`/our-menu`} />
-                <NavItem routeName={"Order Food"} routePath={`/order-food`} />
+                <NavItem
+                  routeName={"Order Food"}
+                  routePath={`/order-food/salads`}
+                />
               </div>
 
               <div className="flex items-center mt-4 lg:mt-0">

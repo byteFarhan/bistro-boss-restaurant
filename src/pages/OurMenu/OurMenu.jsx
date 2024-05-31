@@ -37,10 +37,7 @@ const OurMenu = () => {
         showSectionIntro={true}
         sectionIntroTitle={"TODAY'S OFFER"}
         sectionIntroSubtitle={"Don't miss"}
-        categoryTitle={"DESSERTS"}
-        categoryDescription={`Lorem Ipsum has been the industry’s standard dummy text ever since
-        the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book.`}
+        categoryTitle={"salads"}
       />
       <MenuCategory
         menus={dessert[0]}

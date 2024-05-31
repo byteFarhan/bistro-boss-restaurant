@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Cover from "../../Shared/Cover/Cover";
 import MenuItem from "../../Shared/MenuItem/MenuItem";
 import SectionIntro from "../../Shared/SectionIntro/SectionIntro";
@@ -37,9 +38,11 @@ const MenuCategory = ({
             menus?.map((item) => <MenuItem key={item._id} menu={item} />)}
         </div>
         <div className="mt-6 text-center md:mt-8 lg:mt-12">
-          <button className="border-title btn-base hover:bg-title hover:text-white">
-            ORDER YOUR FAVOURITE FOOD
-          </button>
+          <Link to={`/order-food/${categoryTitle.toLowerCase()}`}>
+            <button className="border-title btn-base hover:bg-title hover:text-white">
+              ORDER YOUR FAVOURITE FOOD
+            </button>
+          </Link>
         </div>
       </section>
     </>
