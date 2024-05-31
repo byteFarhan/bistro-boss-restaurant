@@ -12,7 +12,7 @@ const TabCategory = ({ item }) => {
         <>
           <div className="grid grid-cols-1 gap-6 mt-6 md:grid-cols-2 lg:grid-cols-3 md:mt-8 lg:mt-12">
             {menus?.map((item) => (
-              <FoodCard key={item._id} item={item} />
+              <FoodCard key={item._id} item={item} showPrice={true} />
             ))}
           </div>
         </>
