@@ -24,7 +24,7 @@ const MenuCategory = ({
         )}
         {showCover && (
           <Cover bgImg={coverBg} effect={true}>
-            <div className="p-10 text-center bg-[#15151599] max-w-7xl mx-auto md:p-16 lg:py-24 lg:px-36">
+            <div className="p-10 text-center bg-[#15151599] max-w-6xl mx-auto md:p-16 lg:py-24 lg:px-36">
               <h3 className="mb-1 text-3xl font-normal leading-normal text-white uppercase md:text-4xl lg:text-5xl font-cinzel">
                 {categoryTitle}
               </h3>

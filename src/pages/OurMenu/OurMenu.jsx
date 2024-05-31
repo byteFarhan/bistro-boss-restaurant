@@ -14,10 +14,10 @@ const OurMenu = () => {
   const salads = useMenus("salad");
   const soups = useMenus("soup");
 
-  console.log("Soups", soups);
-  console.log("Salads", salads);
-  console.log("pizza", pizza);
-  console.log("offered", offered);
+  //   console.log("Soups", soups);
+  //   console.log("Salads", salads);
+  //   console.log("pizza", pizza);
+  //   console.log("offered", offered);
 
   return (
     <section>

@@ -5,7 +5,7 @@ const MenuItem = ({ menu }) => {
       <div className="w-[118px] h-[104px] ">
         <img
           src={image}
-          alt=""
+          alt={name}
           className="bg-natural w-full h-full object-cover cursor-pointer rounded-[200px] rounded-tl-none"
         />
       </div>
