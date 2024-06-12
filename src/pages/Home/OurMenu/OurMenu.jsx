@@ -14,7 +14,7 @@ const OurMenu = () => {
   //     });
   //   }, [axiosSecure]);
   const [menus, loading] = useMenus("popular");
-  console.log(menus);
+  //   console.log(menus);
   //   console.log(popularMenus);
   return (
     <>
