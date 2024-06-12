@@ -53,6 +53,7 @@ const Navbar = () => {
                   routePath={`/order-food/salads`}
                 />
                 <NavItem routeName={"Register"} routePath={`/register`} />
+                <NavItem routeName={"Login"} routePath={`/login`} />
               </div>
 
               <div className="flex items-center mt-4 lg:mt-0">

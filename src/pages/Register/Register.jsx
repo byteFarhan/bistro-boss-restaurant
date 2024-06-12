@@ -16,12 +16,12 @@ const Register = () => {
             <form className="max-w-sm mx-auto">
               <div className="mb-5">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Your email
+                  Your Name
                 </label>
                 <input
                   type="text"
                   id="name"
-                  className="block w-full px-2.5 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded-lg"
+                  className="block w-full px-2.5 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded-lg focus:outline-1 outline-[#D1A054]"
                   placeholder="Type here"
                 />
               </div>
@@ -32,7 +32,7 @@ const Register = () => {
                 <input
                   type="email"
                   id="email"
-                  className="block w-full px-2.5 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded-lg"
+                  className="block w-full px-2.5 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded-lg focus:outline-1 outline-[#D1A054]"
                   placeholder="Type here"
                   required
                 />
@@ -44,7 +44,7 @@ const Register = () => {
                 <input
                   type="password"
                   id="password"
-                  className="block w-full px-2.5 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded-lg"
+                  className="block w-full px-2.5 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded-lg focus:outline-1 outline-[#D1A054]"
                   placeholder="Enter your password"
                 />
               </div>
