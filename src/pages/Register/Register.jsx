@@ -1,16 +1,40 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import bgImg from "../../assets/others/authentication.png";
 import registerGif from "../../assets/others/authentication1.png";
 import { useForm } from "react-hook-form";
+import useAuth from "../../hooks/useAuth";
+import { updateProfile } from "firebase/auth";
+import toast from "react-hot-toast";
 const Register = () => {
+  const { createUserWithEmail, setUser } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
+    const { name, email, password, photoURL } = data;
+    createUserWithEmail(email, password)
+      .then((result) => {
+        // console.log(result.user);
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: photoURL,
+        }).then(() => {
+          setUser({ ...result.user, displayName: name, photoURL });
+          toast.success("Registation successfull.");
+          reset();
+          navigate(location.state ? location.state : "/");
+        });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   return (
@@ -56,6 +80,21 @@ const Register = () => {
                 />
                 {errors.email && (
                   <span className="text-red-600">Email is required!</span>
+                )}
+              </div>
+              <div className="mb-5">
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Photo URL
+                </label>
+                <input
+                  type="photoURL"
+                  id="photoURL"
+                  className="block w-full px-2.5 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded-lg focus:outline-1 outline-[#D1A054]"
+                  placeholder="Type here"
+                  {...register("photoURL", { required: true })}
+                />
+                {errors.photoURL && (
+                  <span className="text-red-600">photo URL is required!</span>
                 )}
               </div>
               <div className="mb-5">

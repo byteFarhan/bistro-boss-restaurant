@@ -1,16 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import bgImg from "../../assets/others/authentication.png";
 import loginGif from "../../assets/others/authentication1.png";
 import { useForm } from "react-hook-form";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 const Login = () => {
+  const { signInWithEmail } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
+    const { email, password } = data;
+    signInWithEmail(email, password)
+      .then(() => {
+        toast.success("Login successfull.");
+        reset();
+        navigate(location.state ? location.state : "/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
   return (
     <>
@@ -61,7 +77,7 @@ const Login = () => {
                 type="submit"
                 className="text-lg font-bold text-white font-inter bg-[#D1A054] w-full py-3 text-center rounded-lg"
               >
-                Sign Up
+                Sign In
               </button>
             </form>
             <div className="mt-8">
