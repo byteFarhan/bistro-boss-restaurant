@@ -4,14 +4,14 @@ import Footer from "../../pages/Shared/Footer/Footer";
 
 const MainLayout = () => {
   const location = useLocation();
-  const hideHedderFooter =
+  const hideHeaderFooter =
     location.pathname.includes("register") ||
     location.pathname.includes("login");
   return (
     <>
-      {hideHedderFooter || <Navbar></Navbar>}
+      {hideHeaderFooter || <Navbar></Navbar>}
       <Outlet />
-      {hideHedderFooter || <Footer></Footer>}
+      {hideHeaderFooter || <Footer></Footer>}
     </>
   );
 };

@@ -1,7 +1,17 @@
 import { Link } from "react-router-dom";
 import bgImg from "../../assets/others/authentication.png";
 import loginGif from "../../assets/others/authentication1.png";
+import { useForm } from "react-hook-form";
 const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
     <>
       <section
@@ -13,7 +23,10 @@ const Login = () => {
             <h2 className="mb-6 text-4xl font-bold text-center md:mb-8 lg:mb-12 text-title">
               Login
             </h2>
-            <form className="max-w-sm mx-auto">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="max-w-sm mx-auto"
+            >
               <div className="mb-5">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Your email
@@ -23,8 +36,11 @@ const Login = () => {
                   id="email"
                   className="block w-full px-2.5 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded-lg focus:outline-1 outline-[#D1A054]"
                   placeholder="Type here"
-                  required
+                  {...register("email", { required: true })}
                 />
+                {errors.email && (
+                  <span className="text-red-600">Email is required!</span>
+                )}
               </div>
               <div className="mb-5">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -35,7 +51,11 @@ const Login = () => {
                   id="password"
                   className="block w-full px-2.5 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded-lg focus:outline-1 outline-[#D1A054]"
                   placeholder="Enter your password"
+                  {...register("password", { required: true })}
                 />
+                {errors.password && (
+                  <span className="text-red-600">Password is required!</span>
+                )}
               </div>
               <button
                 type="submit"

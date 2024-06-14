@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
 import bgImg from "../../assets/others/authentication.png";
 import registerGif from "../../assets/others/authentication1.png";
+import { useForm } from "react-hook-form";
 const Register = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <>
       <section
@@ -13,7 +24,10 @@ const Register = () => {
             <h2 className="mb-6 text-4xl font-bold text-center md:mb-8 lg:mb-12 text-title">
               Sign Up
             </h2>
-            <form className="max-w-sm mx-auto">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="max-w-sm mx-auto"
+            >
               <div className="mb-5">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Your Name
@@ -23,7 +37,11 @@ const Register = () => {
                   id="name"
                   className="block w-full px-2.5 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded-lg focus:outline-1 outline-[#D1A054]"
                   placeholder="Type here"
+                  {...register("name", { required: true })}
                 />
+                {errors.name && (
+                  <span className="text-red-600">Name is required!</span>
+                )}
               </div>
               <div className="mb-5">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -34,8 +52,11 @@ const Register = () => {
                   id="email"
                   className="block w-full px-2.5 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded-lg focus:outline-1 outline-[#D1A054]"
                   placeholder="Type here"
-                  required
+                  {...register("email", { required: true })}
                 />
+                {errors.email && (
+                  <span className="text-red-600">Email is required!</span>
+                )}
               </div>
               <div className="mb-5">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -46,7 +67,32 @@ const Register = () => {
                   id="password"
                   className="block w-full px-2.5 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded-lg focus:outline-1 outline-[#D1A054]"
                   placeholder="Enter your password"
+                  {...register("password", {
+                    required: true,
+                    minLength: 6,
+                    maxLength: 20,
+                    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])/,
+                  })}
                 />
+                {errors?.password?.type === "required" && (
+                  <span className="text-red-600">Password is required!</span>
+                )}
+                {errors?.password?.type === "minLength" && (
+                  <span className="text-red-600">
+                    Password must be 6 characters!
+                  </span>
+                )}
+                {errors?.password?.type === "maxLength" && (
+                  <span className="text-red-600">
+                    Password must be less then 20 characters!
+                  </span>
+                )}
+                {errors?.password?.type === "pattern" && (
+                  <span className="text-red-600">
+                    Your password must contain at least one uppercase letter,
+                    one lowercase letter, one digit, and one special character!
+                  </span>
+                )}
               </div>
 
               {/* <div className="flex items-start mb-5">
