@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import { updateProfile } from "firebase/auth";
 import toast from "react-hot-toast";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 const Register = () => {
   const { createUserWithEmail, setUser } = useAuth();
   const location = useLocation();
@@ -168,6 +169,7 @@ const Register = () => {
                 </p>
               </Link>
             </div>
+            <SocialLogin />
           </div>
           <div className="flex-1 hidden lg:block">
             <img src={registerGif} alt="" className="mix-blend-multiply" />

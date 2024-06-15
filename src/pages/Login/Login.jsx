@@ -4,6 +4,7 @@ import loginGif from "../../assets/others/authentication1.png";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 const Login = () => {
   const { signInWithEmail } = useAuth();
   const location = useLocation();
@@ -87,6 +88,7 @@ const Login = () => {
                 </p>
               </Link>
             </div>
+            <SocialLogin />
           </div>
           <div className="flex-1 hidden lg:block">
             <img src={loginGif} alt="" className="mix-blend-multiply" />
