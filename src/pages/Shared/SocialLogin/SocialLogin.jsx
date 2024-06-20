@@ -7,12 +7,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 const SocialLogin = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const from = location?.state?.from?.pathname || "/";
   const { signInWithGoogle, signInWithGithub } = useAuth();
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then(() => {
         toast.success("Login successfull.");
-        navigate(location.state ? location.state : "/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         toast.error(error.message);
@@ -22,7 +23,7 @@ const SocialLogin = () => {
     signInWithGithub()
       .then(() => {
         toast.success("Login successfull.");
-        navigate(location.state ? location.state : "/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         toast.error(error.message);

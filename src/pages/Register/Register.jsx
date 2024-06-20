@@ -10,6 +10,7 @@ const Register = () => {
   const { createUserWithEmail, setUser } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const from = location?.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -30,7 +31,7 @@ const Register = () => {
           setUser({ ...result.user, displayName: name, photoURL });
           toast.success("Registation successfull.");
           reset();
-          navigate(location.state ? location.state : "/");
+          navigate(from, { replace: true });
         });
       })
       .catch((error) => {

@@ -9,6 +9,7 @@ const Login = () => {
   const { signInWithEmail } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const from = location?.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -23,7 +24,7 @@ const Login = () => {
       .then(() => {
         toast.success("Login successfull.");
         reset();
-        navigate(location.state ? location.state : "/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         toast.error(error.message);

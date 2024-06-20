@@ -104,6 +104,7 @@ const Navbar = () => {
                           src={user?.photoURL}
                           className="object-cover w-full h-full"
                           alt={user?.displayName}
+                          referrerPolicy="no-referrer"
                         />
                       </div>
 
