@@ -1,6 +1,6 @@
 import TRowB from "./TRowB/TRowB";
 
-const UsersTable = ({ items }) => {
+const UsersTable = ({ items, handleMakeAdmin, handleDeleteUser }) => {
   return (
     <>
       <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
@@ -43,7 +43,13 @@ const UsersTable = ({ items }) => {
         </thead>
         <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
           {items?.map((item, idx) => (
-            <TRowB key={item._id} rowData={item} index={idx} />
+            <TRowB
+              key={item._id}
+              rowData={item}
+              index={idx}
+              handleMakeAdmin={handleMakeAdmin}
+              handleDeleteUser={handleDeleteUser}
+            />
           ))}
         </tbody>
       </table>

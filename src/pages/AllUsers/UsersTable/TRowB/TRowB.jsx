@@ -1,6 +1,6 @@
 import { FaUser, FaUsers } from "react-icons/fa6";
 
-const TRowB = ({ rowData, index }) => {
+const TRowB = ({ rowData, index, handleMakeAdmin, handleDeleteUser }) => {
   const { name, email, _id } = rowData;
 
   return (
@@ -19,11 +19,11 @@ const TRowB = ({ rowData, index }) => {
         <td className="px-4 py-4 text-sm whitespace-nowrap">
           <div className="flex items-center gap-x-6">
             <button
-              //   onClick={() => handleDelete(_id)}
+              onClick={() => handleMakeAdmin(rowData)}
               className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none"
             >
               <p className="text-xl font-medium text-white bg-orange-400 px-4 py-2.5 rounded-md">
-                <FaUsers />
+                {rowData?.role === "admin" ? "Admin" : <FaUsers />}
               </p>
             </button>
           </div>
@@ -31,7 +31,7 @@ const TRowB = ({ rowData, index }) => {
         <td className="px-4 py-4 text-sm whitespace-nowrap">
           <div className="flex items-center gap-x-6">
             <button
-              //   onClick={() => handleDelete(_id)}
+              onClick={() => handleDeleteUser(rowData)}
               className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none"
             >
               <svg

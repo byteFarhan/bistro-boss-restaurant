@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import "sweetalert2/src/sweetalert2.scss";
 import MainLayout from "../layouts/MainLayout/MainLayout";
 import Home from "../pages/Home/Home/Home";
 import OurMenu from "../pages/OurMenu/OurMenu";
