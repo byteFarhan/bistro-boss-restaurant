@@ -20,6 +20,9 @@ const Cart = () => {
             <h3 className="text-3xl font-bold text-title font-cinzel">
               Total Price: ${totalPrice}
             </h3>
+            <button className="px-5 py-2.5 rounded-md bg-orange-400 text-white font-bold font-cinzel text-lg">
+              Pay
+            </button>
           </div>
           <div className="mt-10">
             <CartTable items={cart} />

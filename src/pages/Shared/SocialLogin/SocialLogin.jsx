@@ -3,15 +3,31 @@ import useAuth from "../../../hooks/useAuth";
 import { FaFacebookF, FaGithub } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const SocialLogin = () => {
+  const axiosPublic = useAxiosPublic();
   const location = useLocation();
   const navigate = useNavigate();
   const from = location?.state?.from?.pathname || "/";
   const { signInWithGoogle, signInWithGithub } = useAuth();
   const handleGoogleSignIn = () => {
     signInWithGoogle()
-      .then(() => {
+      .then((result) => {
+        // console.log(result);
+        const userInfo = {
+          name: result?.user?.displayName,
+          email: result?.user?.email,
+        };
+        // sent user info to the database
+        axiosPublic
+          .post("/users", userInfo)
+          .then((res) => {
+            // console.log(res);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
         toast.success("Login successfull.");
         navigate(from, { replace: true });
       })
@@ -21,7 +37,20 @@ const SocialLogin = () => {
   };
   const handleGithubSignIn = () => {
     signInWithGithub()
-      .then(() => {
+      .then((result) => {
+        const userInfo = {
+          name: result?.user?.displayName,
+          email: result?.user?.email,
+        };
+        // sent user info to the database
+        axiosPublic
+          .post("/users", userInfo)
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
         toast.success("Login successfull.");
         navigate(from, { replace: true });
       })

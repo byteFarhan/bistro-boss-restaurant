@@ -3,6 +3,7 @@ import { FaHome, FaShoppingCart } from "react-icons/fa";
 import { ImSpoonKnife } from "react-icons/im";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../../hooks/useCart";
+import { MdEmail } from "react-icons/md";
 
 const Dashboard = () => {
   const [cart] = useCart();
@@ -13,10 +14,10 @@ const Dashboard = () => {
           <ul className="pt-16 space-y-3 menu">
             <li>
               <NavLink
-                to={"/dashboard/admin-home"}
+                to={"/dashboard/user-home"}
                 className="flex items-center justify-center gap-2 py-2 text-lg font-semibold text-center font-cinzel"
               >
-                <FaHome /> Admin Home
+                <FaHome /> User Home
               </NavLink>
             </li>
             <li>
@@ -54,6 +55,15 @@ const Dashboard = () => {
               >
                 <BiSolidFoodMenu />
                 Our Menu
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={"/contact"}
+                className="flex items-center justify-center gap-2 py-2 text-lg font-semibold text-center font-cinzel"
+              >
+                <MdEmail />
+                Contact
               </NavLink>
             </li>
           </ul>

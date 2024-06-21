@@ -6,7 +6,9 @@ import useAuth from "../../hooks/useAuth";
 import { updateProfile } from "firebase/auth";
 import toast from "react-hot-toast";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 const Register = () => {
+  const axiosPublic = useAxiosPublic();
   const { createUserWithEmail, setUser } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
@@ -24,6 +26,7 @@ const Register = () => {
     createUserWithEmail(email, password)
       .then((result) => {
         // console.log(result.user);
+        // usdate user profile
         updateProfile(result.user, {
           displayName: name,
           photoURL: photoURL,
@@ -32,6 +35,20 @@ const Register = () => {
           toast.success("Registation successfull.");
           reset();
           navigate(from, { replace: true });
+          const userInfo = {
+            name: name,
+            email: email,
+            pass: password,
+          };
+          // sent user info to the database
+          axiosPublic
+            .post("/users", userInfo)
+            .then((res) => {
+              // console.log(res.data);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         });
       })
       .catch((error) => {
