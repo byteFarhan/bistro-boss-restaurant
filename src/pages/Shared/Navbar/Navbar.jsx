@@ -83,9 +83,11 @@ const Navbar = () => {
                     >
                       <div className="relative">
                         <IoCartOutline className="text-2xl font-semibold lg:text-3xl" />
-                        <p className="absolute top-[-10px] right-[-12px] text-lg bg-white rounded-full font-medium size-6 text-title">
-                          {cart?.length}
-                        </p>
+                        {cart?.length > 0 && (
+                          <p className="absolute top-[-10px] right-[-12px] bg-white rounded-full font-medium size-6 text-title">
+                            {cart?.length}
+                          </p>
+                        )}
                       </div>
                     </button>
 
