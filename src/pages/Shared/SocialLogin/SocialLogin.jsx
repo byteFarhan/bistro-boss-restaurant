@@ -11,15 +11,15 @@ const SocialLogin = () => {
   const navigate = useNavigate();
   const from = location?.state?.from?.pathname || "/";
   const { signInWithGoogle, signInWithGithub } = useAuth();
-  const handleGoogleSignIn = () => {
-    signInWithGoogle()
+
+  const handleSocialSignIn = (signInMethod) => {
+    signInMethod()
       .then((result) => {
-        // console.log(result);
         const userInfo = {
           name: result?.user?.displayName,
           email: result?.user?.email,
         };
-        // sent user info to the database
+        // send user info to the database
         axiosPublic
           .post("/users", userInfo)
           .then((res) => {
@@ -35,39 +35,8 @@ const SocialLogin = () => {
         toast.error(error.message);
       });
   };
-  const handleGithubSignIn = () => {
-    signInWithGithub()
-      .then((result) => {
-        const userInfo = {
-          name: result?.user?.displayName,
-          email: result?.user?.email,
-        };
-        // sent user info to the database
-        axiosPublic
-          .post("/users", userInfo)
-          .then((res) => {
-            console.log(res);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-        toast.success("Login successfull.");
-        navigate(from, { replace: true });
-      })
-      .catch((error) => {
-        toast.error(error.message);
-      });
-  };
   const handleFacebookSignIn = () => {
     toast("Feature comming soon.");
-    // signInWithFacebook()
-    //   .then(() => {
-    //     toast.success("Login successfull.");
-    //     navigate(location.state ? location.state : "/");
-    //   })
-    //   .catch((error) => {
-    //     toast.error(error.message);
-    //   });
   };
   return (
     <div className="mt-6">
@@ -76,13 +45,13 @@ const SocialLogin = () => {
       </p>
       <div className="flex justify-center gap-6">
         <p
-          onClick={handleGoogleSignIn}
+          onClick={() => handleSocialSignIn(signInWithGoogle)}
           className="flex cursor-pointer items-center justify-center bg-transparent border-2 rounded-full h-[52px] w-[52px] border-title"
         >
           <FaGoogle className="text-2xl text-title" />
         </p>
         <p
-          onClick={handleGithubSignIn}
+          onClick={() => handleSocialSignIn(signInWithGithub)}
           className="flex cursor-pointer items-center justify-center bg-transparent border-2 rounded-full h-[52px] w-[52px] border-title"
         >
           <FaGithub className="text-2xl text-title" />

@@ -18,14 +18,16 @@ const TRowB = ({ rowData, index, handleMakeAdmin, handleDeleteUser }) => {
         </td>
         <td className="px-4 py-4 text-sm whitespace-nowrap">
           <div className="flex items-center gap-x-6">
-            <button
-              onClick={() => handleMakeAdmin(rowData)}
-              className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none"
-            >
-              <p className="text-xl font-medium text-white bg-orange-400 px-4 py-2.5 rounded-md">
-                {rowData?.role === "admin" ? "Admin" : <FaUsers />}
-              </p>
-            </button>
+            {rowData?.role === "admin" ? (
+              <p className="text-lg font-medium text-orange-400">Admin</p>
+            ) : (
+              <button
+                onClick={() => handleMakeAdmin(rowData)}
+                className="text-3xl font-medium text-orange-400"
+              >
+                <FaUsers />
+              </button>
+            )}
           </div>
         </td>
         <td className="px-4 py-4 text-sm whitespace-nowrap">

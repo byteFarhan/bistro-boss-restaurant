@@ -1,17 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
 import SectionIntro from "../Shared/SectionIntro/SectionIntro";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
+// import useAxiosPublic from "../../hooks/useAxiosPublic";
 import UsersTable from "./UsersTable/UsersTable";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const AllUsers = () => {
-  const axiosPublic = useAxiosPublic();
+  // const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/users");
+      const res = await axiosSecure.get("/users", {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("access-token")}`,
+        },
+      });
       return res.data;
     },
   });
@@ -29,11 +33,11 @@ const AllUsers = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.patch(`/user/admin/${user?._id}`).then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           if (res.data?.modifiedCount) {
             refetch();
             Swal.fire({
-              title: "Made Admin",
+              title: "User role change to Admin",
               text: `${user?.name} is now admin.`,
               icon: "success",
             });

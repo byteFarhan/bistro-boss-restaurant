@@ -81,14 +81,14 @@ const Navbar = () => {
                       className="hidden mx-4 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
                       aria-label="show notifications"
                     >
-                      <div className="relative">
-                        <IoCartOutline className="text-2xl font-semibold lg:text-3xl" />
+                      <Link to={"/dashboard/cart"} className="relative">
+                        <IoCartOutline className="text-2xl font-semibold text-white lg:text-3xl" />
                         {cart?.length > 0 && (
-                          <p className="absolute top-[-10px] right-[-12px] bg-white rounded-full font-medium size-6 text-title">
+                          <p className="absolute top-[-10px] right-[-12px] text-title bg-orange-400 rounded-full font-medium size-6">
                             {cart?.length}
                           </p>
                         )}
-                      </div>
+                      </Link>
                     </button>
 
                     <button
