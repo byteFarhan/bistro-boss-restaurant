@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
           name: currentUser?.displayName,
         };
         const tokenData = await axiosPublic.post("/jwt", userData);
-        // console.log(tokenData?.data);
+        console.log(tokenData?.data.token);
         localStorage.setItem("access-token", tokenData?.data.token);
       } else {
         localStorage.removeItem("access-token");
