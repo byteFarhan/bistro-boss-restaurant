@@ -33,14 +33,11 @@ const useAxiosSecure = () => {
       const status = error.response.status;
       // console.log(status);
       if (status === 401 || status === 403) {
-        // if (localStorage.getItem("access-token")) {
+        // userSignOut()
+        //   .then(() => {})
+        //   .catch((err) => console.log(err));
         await userSignOut();
-        // .then(() => {})
-        // .catcc((err) => {
-        //   console.log(err);
-        // });
         navigate("/login", { state: { from: location }, replace: true });
-        // }
       }
       return Promise.reject(error);
     }

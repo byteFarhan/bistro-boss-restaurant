@@ -10,6 +10,7 @@ const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
+    enabled: !!localStorage.getItem("access-token"), // api call will wiat until it get "access-token" from local storage.
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
       // console.log(res.data);
