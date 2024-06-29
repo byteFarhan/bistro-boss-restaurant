@@ -38,7 +38,9 @@ const Register = () => {
           const userInfo = {
             name: name,
             email: email,
-            pass: password,
+            photoURL,
+            // pass: password,
+            role: "user",
           };
           // sent user info to the database
           axiosPublic

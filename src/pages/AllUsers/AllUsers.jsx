@@ -4,13 +4,15 @@ import SectionIntro from "../Shared/SectionIntro/SectionIntro";
 import UsersTable from "./UsersTable/UsersTable";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAuth from "../../hooks/useAuth";
 
 const AllUsers = () => {
+  const { user, loading } = useAuth();
   // const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
-    enabled: !!localStorage.getItem("access-token"), // api call will wiat until it get "access-token" from local storage.
+    enabled: !!localStorage.getItem("access-token") && !!user, // api call will wiat until it get "access-token" from local storage.
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
       // console.log(res.data);

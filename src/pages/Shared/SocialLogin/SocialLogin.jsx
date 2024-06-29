@@ -18,6 +18,8 @@ const SocialLogin = () => {
         const userInfo = {
           name: result?.user?.displayName,
           email: result?.user?.email,
+          photoURL: result?.user?.photoURL,
+          role: "user",
         };
         // send user info to the database
         axiosPublic

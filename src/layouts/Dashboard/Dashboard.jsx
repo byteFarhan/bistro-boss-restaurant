@@ -6,15 +6,18 @@ import useCart from "../../hooks/useCart";
 import { MdEmail, MdOutlineRateReview } from "react-icons/md";
 import { FaCalendar, FaList, FaUsers } from "react-icons/fa6";
 import { useState } from "react";
+import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
-  const [admin, setAdmin] = useState(true);
+  // const [admin, setAdmin] = useState(true);
+  const [isAdmin] = useAdmin();
+  // console.log(isAdmin);
   const [cart] = useCart();
   return (
     <section className="flex">
       <section>
         <div className="w-64 h-full min-h-screen px-4 bg-orange-400">
-          {admin ? (
+          {isAdmin ? (
             <>
               <ul className="pt-16 space-y-3 menu">
                 <li>
@@ -121,10 +124,10 @@ const Dashboard = () => {
             </li>
             <li>
               <button
-                onClick={() => setAdmin(!admin)}
+                // onClick={() => setAdmin(!admin)}
                 className="bg-title text-white font-semibold w-full py-2.5 rounded-md"
               >
-                {admin ? "Make User" : "Make Admin"}
+                {isAdmin ? "Make User" : "Make Admin"}
               </button>
             </li>
           </ul>
