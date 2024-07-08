@@ -6,7 +6,7 @@ const useAdmin = () => {
   const { user, loading } = useAuth();
   //   console.log(user?.email);
   const axiosSecure = useAxiosSecure();
-  const { data: isAdmin } = useQuery({
+  const { data: isAdmin, isPending: isAdminLoading } = useQuery({
     queryKey: [user?.email, "isAdmin"],
     enabled: !!localStorage.getItem("access-token"),
     queryFn: async () => {
@@ -15,7 +15,7 @@ const useAdmin = () => {
       return res?.data?.isAdmin;
     },
   });
-  return [isAdmin];
+  return [isAdmin, isAdminLoading];
 };
 
 export default useAdmin;

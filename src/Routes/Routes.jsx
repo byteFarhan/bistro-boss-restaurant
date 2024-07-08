@@ -10,6 +10,7 @@ import PrivetRoute from "./PrivetRoute/PrivetRoute";
 import Dashboard from "../layouts/Dashboard/Dashboard";
 import Cart from "../pages/Dashboard/Cart/Cart";
 import AllUsers from "../pages/AllUsers/AllUsers";
+import AdminRoute from "./AdminRoute/AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -21,11 +22,11 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "our-menu",
+        path: "/our-menu",
         element: <OurMenu />,
       },
       {
-        path: "order-food/:category",
+        path: "/order-food/:category",
         element: (
           <PrivetRoute>
             <OrderFood />
@@ -44,15 +45,27 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <PrivetRoute>
+        <Dashboard />
+      </PrivetRoute>
+    ),
     children: [
       {
         path: "/dashboard/cart",
-        element: <Cart />,
+        element: (
+          <PrivetRoute>
+            <Cart />
+          </PrivetRoute>
+        ),
       },
       {
         path: "/dashboard/all-users",
-        element: <AllUsers />,
+        element: (
+          <AdminRoute>
+            <AllUsers />
+          </AdminRoute>
+        ),
       },
     ],
   },

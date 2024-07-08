@@ -8,6 +8,7 @@ import useAuth from "../../hooks/useAuth";
 
 const AllUsers = () => {
   const { user, loading } = useAuth();
+  // const
   // const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
   const { data: users = [], refetch } = useQuery({

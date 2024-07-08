@@ -52,6 +52,14 @@ const Dashboard = () => {
                     <FaUsers /> All Users
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to={"/dashboard/cart"}
+                    className="flex items-center gap-2 px-4 py-2 text-lg font-semibold font-cinzel"
+                  >
+                    <FaShoppingCart /> My Cart ({cart?.length})
+                  </NavLink>
+                </li>
               </ul>
             </>
           ) : (
