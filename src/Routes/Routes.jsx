@@ -9,9 +9,10 @@ import Login from "../pages/Login/Login";
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
 import Dashboard from "../layouts/Dashboard/Dashboard";
 import Cart from "../pages/Dashboard/Cart/Cart";
-import AllUsers from "../pages/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute/AdminRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import AddItem from "../pages/Dashboard/AddItem/AddItem";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,14 @@ const router = createBrowserRouter([
           <PrivetRoute>
             <Cart />
           </PrivetRoute>
+        ),
+      },
+      {
+        path: "/dashboard/add-item",
+        element: (
+          <AdminRoute>
+            <AddItem />
+          </AdminRoute>
         ),
       },
       {

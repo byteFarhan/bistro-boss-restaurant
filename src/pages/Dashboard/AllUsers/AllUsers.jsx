@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import SectionIntro from "../Shared/SectionIntro/SectionIntro";
 // import useAxiosPublic from "../../hooks/useAxiosPublic";
 import UsersTable from "./UsersTable/UsersTable";
 import Swal from "sweetalert2/dist/sweetalert2.js";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../../hooks/useAuth";
+import SectionIntro from "../../Shared/SectionIntro/SectionIntro";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AllUsers = () => {
   const { user, loading } = useAuth();
