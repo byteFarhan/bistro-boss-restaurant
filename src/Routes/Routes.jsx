@@ -11,11 +11,13 @@ import Dashboard from "../layouts/Dashboard/Dashboard";
 import Cart from "../pages/Dashboard/Cart/Cart";
 import AllUsers from "../pages/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute/AdminRoute";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -50,6 +52,7 @@ const router = createBrowserRouter([
         <Dashboard />
       </PrivetRoute>
     ),
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/dashboard/cart",
